@@ -49,3 +49,22 @@ paste every thing in this folder . if you are getting skip or replace error then
 [DC 12V Solenoid Electric Door Lock](https://techshopbd.com/detail/1878/DC_12V_Solenoid_Electric_Door_Lock_techshop_bangladesh)
 
 [Power Adapter 12V](https://techshopbd.com/detail/1501/Power_Adapter_12V_techshop_bangladesh)
+
+
+RFID CONNECTIONS:
+
+| RFID PIN | ARDUINO PIN |
+| ------------- | ------------- |
+|  3.3V | PIN 3.3V  |
+| GND  | GND |
+|  NC | NO CONNECTION  |
+|  MISO | PIN 12  |
+| MOSI  | PIN 11 |
+| SCK  | PIN 13  |
+|  SDA | PIN 5  |
+|  RST | PIN 9 |
+
+
+<img width="60%" img hight="60%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/rfid.jpg">
+
+
