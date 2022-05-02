@@ -57,7 +57,7 @@ void loop()
   Serial.println();
   Serial.print("Message : ");
   content.toUpperCase();
-  if (content.substring(1) == "27 EB 72 11") // enter your own card number after copying it from serial monitor
+  if (content.substring(1) == "your card id") // enter your own card number after copying it from serial monitor
   {
     Serial.println("Authorized access");
  
@@ -72,62 +72,4 @@ void loop()
  }
   }
 
-
- if (content.substring(1) == "69 AE 44 A2") // enter your own card number after copying it from serial monitor
-  {
-    Serial.println("Tree 1");
- 
-    Serial.println();
-        
- delay(200);
-    tone(BUZZER, 900);
-    delay(300);
-       
-    noTone(BUZZER);   
-{   
- digitalWrite(LED_BLUE, HIGH);
- delay(1000);
- digitalWrite(LED_BLUE, LOW);
- }
-
-  }
-    
-    
-     
-if (content.substring(1) == "3B 46 64 0A") // enter your own card number after copying it from serial monitor
-  {
-    Serial.println("Tree 2");
- 
-    Serial.println();
-         delay(200);
-    tone(BUZZER, 900);
-    delay(300);
-       
-    noTone(BUZZER);   
-{   
- digitalWrite(LED_BLUE, HIGH);
- delay(1000);
- digitalWrite(LED_BLUE, LOW);
- }
-        
-
-
-  }
-   
-     
- 
-if (content.substring(1) == "D4 81 20 2A") // enter your own card number after copying it from serial monitor
-  {
-    Serial.println("  Access denied");
- 
-    Serial.println();
-        delay(200);
-    {   
- digitalWrite(BUZZER, HIGH);
- delay(1000);
- digitalWrite(BUZZER, LOW);
- }
-
-
-  }
 }
