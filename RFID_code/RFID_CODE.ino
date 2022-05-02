@@ -63,12 +63,13 @@ void loop()
  
     Serial.println();
        
-     digitalWrite(RELAY, HIGH);
 
  {   
  digitalWrite(LED_GREEN, HIGH);
- delay(1000);
+ digitalWrite(RELAY, HIGH);
+ delay(4000);
  digitalWrite(LED_GREEN, LOW);
+ digitalWrite(RELAY, LOW);
  }
   }
 
