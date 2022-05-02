@@ -68,3 +68,27 @@ RFID CONNECTIONS:
 <img width="60%" img hight="60%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/rfid.jpg">
 
 
+
+
+RELAY  CONNECTIONS:
+
+| RELAY | ARDUINO PIN |
+| ------------- | ------------- |
+| VCC   | 5V  |
+| GND   | GND |
+| IN(Signal) | DIGITAL PIN 2  |
+
+
+
+
+<img width="40%" img hight="40%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/realy.jpg">
+
+BUZZER CONNECTIONS:
+
+| BUZZER | ARDUINO PIN |
+| ------------- | ------------- |
+| VCC (+)  | DIGITAL PIN 8  |
+| GND   | GND |
+
+
+
