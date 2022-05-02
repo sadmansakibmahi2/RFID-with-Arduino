@@ -50,8 +50,7 @@ paste every thing in this folder . if you are getting skip or replace error then
 
 [Power Adapter 12V](https://techshopbd.com/detail/1501/Power_Adapter_12V_techshop_bangladesh)
 
-
-RFID CONNECTIONS:
+### RFID CONNECTIONS:
 
 | RFID PIN | ARDUINO PIN |
 | ------------- | ------------- |
@@ -68,9 +67,7 @@ RFID CONNECTIONS:
 <img width="60%" img hight="60%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/rfid.jpg">
 
 
-
-
-RELAY  CONNECTIONS:
+### RELAY  CONNECTIONS:
 
 | RELAY | ARDUINO PIN |
 | ------------- | ------------- |
@@ -83,12 +80,21 @@ RELAY  CONNECTIONS:
 
 <img width="40%" img hight="40%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/realy.jpg">
 
-BUZZER CONNECTIONS:
+### BUZZER CONNECTIONS:
 
 | BUZZER | ARDUINO PIN |
 | ------------- | ------------- |
 | VCC (+)  | DIGITAL PIN 8  |
 | GND   | GND |
 
+### POWER SUPPLY CONNECTION:
+
+| Power_Adapter_12V | ARDUINO PIN |
+| ------------- | ------------- |
+| VCC (+)  | ARDUINO VCC  |
+| GND   | GND |
+
+<img width="40%" img hight="40%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/RELAY%20CONNECTION.jpg">
 
 
+### DC 12V Solenoid Electric Door Lock CONNECTIONS:
