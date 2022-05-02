@@ -32,7 +32,7 @@ Then open
   \Arduino\libraries
 ```
 
-past every thing in this folder . if you are getting skip or replace error then click replace button
+paste every thing in this folder . if you are getting skip or replace error then click replace button
 
 <img width="50%" img hight="50%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/Screenshot_1.png">
 
