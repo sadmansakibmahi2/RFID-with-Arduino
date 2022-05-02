@@ -65,12 +65,17 @@ void loop()
        
 
  {   
- digitalWrite(LED_GREEN, HIGH);
- digitalWrite(RELAY, HIGH);
- delay(4000);
- digitalWrite(LED_GREEN, LOW);
- digitalWrite(RELAY, LOW);
+    digitalWrite(LED_GREEN, HIGH);
+    digitalWrite(RELAY, HIGH);
+    delay(4000);
+    digitalWrite(LED_GREEN, LOW);
+    digitalWrite(RELAY, LOW);
  }
   }
-
+  else
+     {
+       digitalWrite(BUZZER, HIGH);
+       delay(6000);
+       digitalWrite(BUZZER, LOW);
+}
 }
