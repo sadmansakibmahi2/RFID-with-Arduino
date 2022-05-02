@@ -96,5 +96,11 @@ paste every thing in this folder . if you are getting skip or replace error then
 
 <img width="40%" img hight="40%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/RELAY%20CONNECTION.jpg">
 
+### DC 12V Solenoid Electric Door Lock CONNECTIONS: 
 
-### DC 12V Solenoid Electric Door Lock CONNECTIONS:
+| 12V Solenoid Electric Door Lock | RELAY AND POWER SUPPLY |
+| ------------- | ------------- |
+| RED WIRE  | RELAY COM  |
+| BACK WIRE   | POWER SUPPLY (-) |
+
+  CONNECT RELAY (NO PIN)  TO  POWER SUPPLY (+) /VCC
