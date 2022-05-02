@@ -1,65 +1,133 @@
-/*CONNECTIONS
-SERVO WIRE CONNECTIONS
-----------------------------
-SERVO WIRE       ARDUINO PIN
-RED WIRE    =     5V
-BLACK WIRE  =    GND
-ORANGE WIRE =   DIGITAL PIN 12
+#include <SPI.h>
+#include <MFRC522.h>
+ 
+#define SS_PIN 5
+#define RST_PIN 9
+#define LED_GREEN 6 //define green LED pin
+#define LED_RED 7 //define red LED
+#define LED_BLUE 10 //// LED PIN BLUE
+#define RELAY 2 //connect the relay to number 3 pin
+#define BUZZER 8 // connect the buzzer to 2 pin
 
-ULTRASONIC SENSOR CONNECTIONS
-ULTRASONIC SENSOR PIN   |   ARDUINO PIN
-VCC                     |   5V
-GND                     |   GND
-TRIGPIN                 |   DIGITAL PIN 10   
-ECHOPIN                 |   DIGITAL PIN 11
-*/
-#include <Servo.h>. 
-// Defines Tirg and Echo pins of the Ultrasonic Sensor
-const int trigPin = 10;
-const int echoPin = 11;
-// Variables for the duration and the distance
-long duration;
-int distance;
-Servo myServo; // Creates a servo object for controlling the servo motor
-void setup() {
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
-  Serial.begin(9600);
-  myServo.attach(12); // Defines on which pin is the servo motor attached
+MFRC522 mfrc522(SS_PIN, RST_PIN);   // Create MFRC522 instance.
+void setup() 
+{
+
+  Serial.begin(9600);   // Initiate a serial communication
+  SPI.begin();          // Initiate  SPI bus
+  mfrc522.PCD_Init();   // Initiate MFRC522
+  pinMode(RELAY, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+ pinMode(LED_BLUE, OUTPUT);
+   pinMode(LED_GREEN, OUTPUT);
+
+  noTone(BUZZER);
+  digitalWrite(RELAY, LOW);
+  Serial.println("Put your card to the reader for scanning ...");
+  Serial.println();
+
 }
-void loop() {
-  // rotates the servo motor from 15 to 165 degrees
-  for(int i=15;i<=165;i++){  
-  myServo.write(i);
-  delay(30);
-  distance = calculateDistance();// Calls a function for calculating the distance measured by the Ultrasonic sensor for each degree
+void loop() 
+{
+
+
+ 
   
-  Serial.print(i); // Sends the current degree into the Serial Port
-  Serial.print(","); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
-  Serial.print(distance); // Sends the distance value into the Serial Port
-  Serial.print("."); // Sends addition character right next to the previous value needed later in the Processing IDE for indexing
+  // Look for new cards
+  if ( ! mfrc522.PICC_IsNewCardPresent()) 
+  {
+    return;
   }
-  // Repeats the previous lines from 165 to 15 degrees
-  for(int i=165;i>15;i--){  
-  myServo.write(i);
-  delay(30);
-  distance = calculateDistance();
-  Serial.print(i);
-  Serial.print(",");
-  Serial.print(distance);
-  Serial.print(".");
+  // Select one of the cards
+  if ( ! mfrc522.PICC_ReadCardSerial()) 
+  {
+    return;
   }
-}
-// Function for calculating the distance measured by the Ultrasonic sensor
-int calculateDistance(){ 
-  
-  digitalWrite(trigPin, LOW); 
-  delayMicroseconds(2);
-  // Sets the trigPin on HIGH state for 10 micro seconds
-  digitalWrite(trigPin, HIGH); 
-  delayMicroseconds(10);
-  digitalWrite(trigPin, LOW);
-  duration = pulseIn(echoPin, HIGH); // Reads the echoPin, returns the sound wave travel time in microseconds
-  distance= duration*0.034/2;
-  return distance;
+  //Show UID on serial monitor
+  Serial.print("UID tag :");
+  String content= "";
+  byte letter;
+  for (byte i = 0; i < mfrc522.uid.size; i++) 
+  {
+     Serial.print(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " ");
+     Serial.print(mfrc522.uid.uidByte[i], HEX);
+     content.concat(String(mfrc522.uid.uidByte[i] < 0x10 ? " 0" : " "));
+     content.concat(String(mfrc522.uid.uidByte[i], HEX));
+  }
+  Serial.println();
+  Serial.print("Message : ");
+  content.toUpperCase();
+  if (content.substring(1) == "27 EB 72 11") // enter your own card number after copying it from serial monitor
+  {
+    Serial.println("Authorized access");
+ 
+    Serial.println();
+       
+     digitalWrite(RELAY, HIGH);
+
+ {   
+ digitalWrite(LED_GREEN, HIGH);
+ delay(1000);
+ digitalWrite(LED_GREEN, LOW);
+ }
+  }
+
+
+ if (content.substring(1) == "69 AE 44 A2") // enter your own card number after copying it from serial monitor
+  {
+    Serial.println("Tree 1");
+ 
+    Serial.println();
+        
+ delay(200);
+    tone(BUZZER, 900);
+    delay(300);
+       
+    noTone(BUZZER);   
+{   
+ digitalWrite(LED_BLUE, HIGH);
+ delay(1000);
+ digitalWrite(LED_BLUE, LOW);
+ }
+
+  }
+    
+    
+     
+if (content.substring(1) == "3B 46 64 0A") // enter your own card number after copying it from serial monitor
+  {
+    Serial.println("Tree 2");
+ 
+    Serial.println();
+         delay(200);
+    tone(BUZZER, 900);
+    delay(300);
+       
+    noTone(BUZZER);   
+{   
+ digitalWrite(LED_BLUE, HIGH);
+ delay(1000);
+ digitalWrite(LED_BLUE, LOW);
+ }
+        
+
+
+  }
+   
+     
+ 
+if (content.substring(1) == "D4 81 20 2A") // enter your own card number after copying it from serial monitor
+  {
+    Serial.println("  Access denied");
+ 
+    Serial.println();
+        delay(200);
+    {   
+ digitalWrite(BUZZER, HIGH);
+ delay(1000);
+ digitalWrite(BUZZER, LOW);
+ }
+
+
+  }
 }
