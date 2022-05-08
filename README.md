@@ -60,8 +60,8 @@ paste every thing in this folder . if you are getting skip or replace error then
 |  MISO | PIN 12  |
 | MOSI  | PIN 11 |
 | SCK  | PIN 13  |
-|  SDA | PIN 5  |
-|  RST | PIN 9 |
+|  SDA (Configurable) | PIN 5  |
+|  RST (Configurable) | PIN 9 |
 
 
 <img width="60%" img hight="60%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/rfid.jpg">
