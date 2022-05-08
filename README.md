@@ -104,3 +104,24 @@ paste every thing in this folder . if you are getting skip or replace error then
 | BACK WIRE   | POWER SUPPLY (-) |
 
   CONNECT RELAY (NO PIN)  TO  POWER SUPPLY (+) /VCC
+
+
+### RFID CONFIGURATION
+
+Then take the RFID tag that you want to register then take this tag in front of your RFID sensor. Then wait for a few seconds, after that you will be able see an id on your serial monitor. Copy the id and paste it into your code.
+
+```bash
+  if (content.substring(1) == "your card id") // enter your own card number after copying it from serial monitor
+```
+
+<img width="50%" img hight="50%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/code%20change.png">
+
+then uplod the code into your arduino.
+
+
+NOW YOUR RFID BASED DOOR LOCK IS READY
+
+
+## Author
+
+- [sadmansakibmahi2](https://www.github.com/sadmansakibmahi2)
