@@ -114,7 +114,7 @@ Then take the RFID tag that you want to register then take this tag in front of 
   if (content.substring(1) == "your card id") // enter your own card number after copying it from serial monitor
 ```
 
-<img width="50%" img hight="100%" src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/code%20change.png">
+<src="https://github.com/sadmansakibmahi2/RFID-with-Arduino/blob/main/IMAGES/code%20change.png">
 
 then uplod the code into your arduino.
 
